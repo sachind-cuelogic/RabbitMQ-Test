@@ -1,0 +1,6 @@
+FROM python:2.7.13
+COPY . /src
+WORKDIR /src
+RUN mkdir /src/logs
+RUN pip install -r requirements.txt
+CMD ["python","-u","domain_subscriber.py"]
