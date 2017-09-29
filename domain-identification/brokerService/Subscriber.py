@@ -15,7 +15,8 @@ class RabbitMQSubscriber(object):
         @param exchange_name name of the exchange to send messages to
         @param host RabbitMQ server host
         """
-
+        # import pdb; pdb.set_trace()
+        print "inside init method of rabbitmqsubscriber"
         logger.debug('Initiating channel for rabbitmq')
         count = 0
         while count <= 3:
@@ -23,10 +24,8 @@ class RabbitMQSubscriber(object):
                 self.host = host
                 credentials = pika.PlainCredentials(RabbitMQ_User,
                         RabbitMQ_Password)
-                self.connection = \
-                    pika.BlockingConnection(pika.ConnectionParameters(credentials=credentials,
-                        host=host, port=RabbitMQ_Port,
-                        heartbeat_interval=Heartbeat_Interval))
+                self.connection = pika.BlockingConnection(pika.ConnectionParameters(credentials=credentials, host=host, port=RabbitMQ_Port, heartbeat_interval=Heartbeat_Interval))
+
                 self.channel = self.connection.channel()
                 self.error = False
                 break
@@ -43,6 +42,8 @@ class RabbitMQSubscriber(object):
         auto_delete=False,
         exchange_type='topic',
         ):
+        # import pdb; pdb.set_trace()
+        print "inside declare exchange"
         """
         Create exchange.
         @param exchange_name name of the exchange
@@ -53,9 +54,8 @@ class RabbitMQSubscriber(object):
 
         logger.debug('Declaring exchange: %s' % str(exchange_name))
         self.exchange_name = exchange_name
-        self.channel.exchange_declare(exchange=self.exchange_name,
-                type=exchange_type, durable=True, passive=False)
-        logger.debug('Declared exchange: %s' % str(exchange_name))
+        self.channel.exchange_declare(exchange=self.exchange_name,type=exchange_type, durable=True, passive=False)
+        logger.debug('Declared exchange: %s' % str(exchange_name))  
 
     def declare_queue(
         self,
@@ -63,6 +63,8 @@ class RabbitMQSubscriber(object):
         routing_key,
         durable=True,
         ):
+        print "inside declare declare queue"
+
         """
         Create a queue and bind it to the exchange.
      
@@ -88,6 +90,8 @@ class RabbitMQSubscriber(object):
                      % (str(queue_name), str(routing_key)))
 
     def subscribing(self, callback, queue_name=None):
+        print "inside declare subscribing"
+
         """
         Start a consumer and register a function to be called when a message is consumed 
 

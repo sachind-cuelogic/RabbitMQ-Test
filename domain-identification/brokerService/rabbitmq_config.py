@@ -8,9 +8,11 @@ import os
 # RabbitMQ server host
 
 RabbitMQ_Host = str(os.environ['RABBITMQ_HOST'])
+print "host===>",os.environ.get('RABBITMQ_HOST')
 
 # RabbitMQ server port
 RabbitMQ_Port = int(os.environ['RABBITMQ_PORT'])
+print "RabbitMQ_Port===>",os.environ.get('RABBITMQ_PORT')
 
 ##################################################
 # The heartbeat timeout value defines after what
@@ -50,7 +52,12 @@ EmailPostfix_Queue = 'emailPostfixQueue'
 ###################################################
 
 RabbitMQ_User = str(os.environ['RABBITMQ_USER'])
+print "RabbitMQ_User===>",os.environ.get('RABBITMQ_USER')
+
+
 RabbitMQ_Password = str(os.environ['RABBITMQ_PASSWORD'])
+print "RabbitMQ_Password===>",os.environ.get('RABBITMQ_PASSWORD')
+
 
 Payload_Exchange_Keys = [
     'companyName',

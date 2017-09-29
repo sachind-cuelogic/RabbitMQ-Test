@@ -38,6 +38,7 @@ class RabbitMQPublisher(object):
             count += 1
 
     def publish(self, message, routing_key):
+        print "routing key==>", routing_key
         """
         Publish message to exchange using routing key
      
@@ -62,6 +63,9 @@ class RabbitMQPublisher(object):
         self.connection.close()
 
     def __getMessage__(self, message):
+        
+        print "inside get message"
+
         logger.debug('Get formatted message to publish %s'
                      % str(message))
         formatted_message = {}

@@ -10,20 +10,26 @@ from brokerService.Subscriber import RabbitMQSubscriber
 from brokerService.rabbitmq_config import *
 
 domain_subscriber = RabbitMQSubscriber(host=RabbitMQ_Host)
+print "domain sub==>", domain_subscriber
+
 
 def listen():
+    print "inside listen"
     domain_subscriber.declare_exchange(exchange_name=Domain_Exchange)
     domain_subscriber.declare_queue(queue_name=Domain_Queue, routing_key=Domain_Exchange)
     domain_subscriber.subscribing(messageCallback)
     domain_subscriber.connection.process_data_events()
 
 def scheduler():
+    print "inside scheduler"
     logger.info(time.ctime())
     logger.info(' [*] Waiting for messages. To exit press CTRL+C')
     listen()
     threading.Timer(10, scheduler).start()
 
 def findDomains(message):
+    print "findDomains"
+
     CleanCompanyName = removeCompanySuffix(message['companyName']) 
     domainList = getCompanyDomainList(CleanCompanyName)
     if  not domainList.count():
@@ -40,16 +46,21 @@ def findDomains(message):
                 publishMessage(message, Status_Exchange)
             else:
                 publishMessage(message, Status_Exchange)
+
+
                 publishMessage(message, Pattern_Exchange)
     else:
         getDomains(message)
 
 def messageCallback(ch, method, properties, body):
+    print "inside message callback"
+
     try:
+        import pdb; pdb.set_trace()
         logger.info('Request Payload : %s' % body)
         logger.info("-"*30)
         try:
-            message = json.loads(body, strict=False)
+            message = json.dumps(json.loads(body, strict=False))
             message['currentPhase'] = 1
             logger.info('Payload : %s' % message)
             findDomains(message)
@@ -61,4 +72,5 @@ def messageCallback(ch, method, properties, body):
         logger.error(e)
 
 if __name__ == "__main__":
+    print "inside main"
     scheduler()

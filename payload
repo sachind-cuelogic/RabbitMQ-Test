@@ -1,0 +1,16 @@
+'{
+	'companyName':'cuelogic',
+    'firstName':'sachin',
+    'lastName':'dane',
+    'middleName':'',
+    'domainName':'',
+    'emailPattern':'',
+    'emailId':'',
+    'batchId':'',
+    'jobId':'',
+    'isEmailVerified':'',
+    'currentPhase':'',
+    'isEmailCatchAll':'',
+    'domainSource':'',
+    'domainMxRecord':''
+}'
