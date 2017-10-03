@@ -15,8 +15,8 @@ class RabbitMQSubscriber(object):
         @param exchange_name name of the exchange to send messages to
         @param host RabbitMQ server host
         """
+        print "inside rabbitmq subscriber"
         # import pdb; pdb.set_trace()
-        print "inside init method of rabbitmqsubscriber"
         logger.debug('Initiating channel for rabbitmq')
         count = 0
         while count <= 3:
@@ -25,6 +25,8 @@ class RabbitMQSubscriber(object):
                 credentials = pika.PlainCredentials(RabbitMQ_User,
                         RabbitMQ_Password)
                 self.connection = pika.BlockingConnection(pika.ConnectionParameters(credentials=credentials, host=host, port=RabbitMQ_Port, heartbeat_interval=Heartbeat_Interval))
+
+                # self.connection = pika.BlockingConnection(pika.ConnectionParameters(host='localhost'))
 
                 self.channel = self.connection.channel()
                 self.error = False
@@ -63,6 +65,7 @@ class RabbitMQSubscriber(object):
         routing_key,
         durable=True,
         ):
+        # import pdb; pdb.set_trace()
         print "inside declare declare queue"
 
         """
@@ -90,6 +93,7 @@ class RabbitMQSubscriber(object):
                      % (str(queue_name), str(routing_key)))
 
     def subscribing(self, callback, queue_name=None):
+        # import pdb; pdb.set_trace()
         print "inside declare subscribing"
 
         """

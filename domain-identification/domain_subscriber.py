@@ -28,6 +28,7 @@ def scheduler():
     threading.Timer(10, scheduler).start()
 
 def findDomains(message):
+    # import pdb; pdb.set_trace()
     print "findDomains"
 
     CleanCompanyName = removeCompanySuffix(message['companyName']) 
@@ -53,14 +54,15 @@ def findDomains(message):
         getDomains(message)
 
 def messageCallback(ch, method, properties, body):
+    # import pdb; pdb.set_trace()
     print "inside message callback"
 
     try:
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         logger.info('Request Payload : %s' % body)
         logger.info("-"*30)
         try:
-            message = json.dumps(json.loads(body, strict=False))
+            message = json.loads(body, strict=False)
             message['currentPhase'] = 1
             logger.info('Payload : %s' % message)
             findDomains(message)

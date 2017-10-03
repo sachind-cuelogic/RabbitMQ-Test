@@ -44,7 +44,7 @@ crunchbaseUrlSet = list()
 crunchbaseDomainSet = list()
 linkedUrlSet = list()
 pendingLinkedInResponseCount = 0
-
+find_web_count = 1
 getValueList = functools.partial(map, operator.itemgetter(r'domain'))
 
 from brokerService.Publisher import RabbitMQPublisher
@@ -52,6 +52,8 @@ from brokerService.rabbitmq_config import *
 
 
 def publishMessage(message, exchangeName):
+    import pdb; pdb.set_trace()
+    print "inside publish message"
     logger.info(r'Publishing message %s ,%s' % (message, exchangeName))
     publisher = RabbitMQPublisher(exchange_name=exchangeName,
                                   host=RabbitMQ_Host)
@@ -69,7 +71,7 @@ def validateDomain(domainName, companyName):
                     add that domain to verifiedDomainSet since its the 
                     parent organizations of query domain
     """
-
+    import pdb; pdb.set_trace()
     logger.info(r'*' * 10)
     logger.info('In validate domain(domainName,companyName) ->> %s , %s'
                  % (domainName, companyName))
@@ -110,6 +112,7 @@ def removeUserNameFromEmail(
         eg: [account@cuelogic.co.in]
         domain : [cuelogic.co.in]
     """
+    import pdb; pdb.set_trace()
 
     logger.info('in removeUserNameFromEmail %s' % str([emails,
                 companyName, domainSource]))
@@ -147,6 +150,7 @@ def findEmailsInHtml(html, message):
     """
         Parsing all emails addresses from html page via email regex
     """
+    import pdb; pdb.set_trace()
 
     if html == None:
         return set()
@@ -164,7 +168,7 @@ def crawlGoogleForCompanyName(companyName, message):
         crawlGoogleForCompanyName is a function to get all data from google for companyName
         Tornado Async calls are intented to use for scrapping
     """
-
+    import pdb; pdb.set_trace()
     logger.info('Google Search results to fetch : %s' % companyName)
     companyName = '"%s"' % companyName
     http_client = httpclient.AsyncHTTPClient()
@@ -178,6 +182,7 @@ def crawlGoogleForCompanyName(companyName, message):
 
 
 def findLinkedInUrl(companyName, message):
+    import pdb; pdb.set_trace()
     logger.info('Google Search results to fetch linked Url: %s'
                 % companyName)
     companyName = '%s' % companyName
@@ -197,12 +202,16 @@ def crawlLinkedInForCompanyName(companyName, message, response):
         crawlLinkedInForCompanyName is a function to get all data from google for companyName
         Tornado Async calls are intented to use for scrapping
     """
-
+    import pdb; pdb.set_trace()
     logger.error('In crawlLinkedInForCompanyName')
     if response.error:
-        logger.error('crawlLinkedInForCompanyName - ERROR : %s'
-                     % response.error)
-        logger.info(r'')
+        count = 0
+        while count <= 3:
+            logger.error('crawlLinkedInForCompanyName - ERROR : %s'
+                         % response.error)
+            logger.info(r'')
+            getDomains(message)
+            count += 1
         ioloop.IOLoop.instance().stop()
     else:
         logger.info(r'LinkedIn URL : %s' % companyName)
@@ -214,39 +223,27 @@ def crawlLinkedInForCompanyName(companyName, message, response):
         else:
             ioloop.IOLoop.instance().stop()
 
-
-def linkedInProxyRequest(linkedUrl, companyName, message):
-    global pendingLinkedInResponseCount
-    logger.info('In linkedInProxyRequest')
-    http_client = httpclient.AsyncHTTPClient()
-    url = 'https://googleweblight.com/?lite_url=' + linkedUrl
-    request = getProxyRequest(url)
-    logger.info('Crawling %s' % url)
-    callback = functools.partial(findWebsite, companyName, message)
-    http_client.fetch(request, callback)
-    url1 = 'https://googleweblight.com/?lite_url=' \
-        + linkedUrl.replace('www.linkedin', 'in.linkedin')
-    request1 = getProxyRequest(url1)
-    logger.info('Crawling %s' % url1)
-    http_client.fetch(request1, callback)
-    pendingLinkedInResponseCount += 2
-
-
 def getLinkedInWebsite(response, companyName):
     """
         getLinkedInWebsite is a function to get linkedin url for 
         companyName if and only if companyName is substring of 
         title
     """
-
+    import pdb; pdb.set_trace()
     global urlSet
     companyName = companyName.strip('"')
     CleanCompanyName = removeCompanySuffix(companyName)
     if response.error:
-        logger.error('In getLinkedInWebsite - ERROR : %s'
-                     % response.error)
-        logger.info(r'')
+
+        count = 0
+        while count <= 3:
+            logger.error('In getLinkedInWebsite - ERROR : %s'
+                         % response.error)
+            logger.info(r'')
+            getDomains(message)
+            count += 1
     else:
+        # import pdb; pdb.set_trace()
         logger.info(r'Received response %s' % response.code)
         tree = html.fromstring(response.body)
         eachTitleXpath = \
@@ -284,20 +281,70 @@ def getLinkedInWebsite(response, companyName):
         return None
 
 
+
+def linkedInProxyRequest(linkedUrl, companyName, message):
+    import pdb; pdb.set_trace()
+    
+    global pendingLinkedInResponseCount
+    logger.info('In linkedInProxyRequest')
+    http_client = httpclient.AsyncHTTPClient()
+    url = 'https://googleweblight.com/?lite_url=' + linkedUrl
+    request = getProxyRequest(url)
+    logger.info('Crawling %s' % url)
+    callback = functools.partial(findWebsite, companyName, message)
+    http_client.fetch(request, callback)
+    url1 = 'https://googleweblight.com/?lite_url=' \
+        + linkedUrl.replace('www.linkedin', 'in.linkedin')
+    request1 = getProxyRequest(url1)
+    logger.info('Crawling %s' % url1)
+    http_client.fetch(request1, callback)
+    pendingLinkedInResponseCount += 2
+
+# def check_response(url, message, companyName):
+#     http_client = httpclient.AsyncHTTPClient()
+
+#     request = getProxyRequest(url)
+#     callback = functools.partial(findWebsite, companyName, message)
+#     http_client.fetch(request, callback)
+#     # print "response==>",response.code
+        
+
+
 def findWebsite(companyName, message, response):
     """
         findURL is a function to get all urlSet from google result 
         page if and only if companyName is substring of 
         title, snippet for each google result
     """
+    import pdb; pdb.set_trace()
 
-    global verifiedDomainSet, pendingLinkedInResponseCount
+    global verifiedDomainSet, pendingLinkedInResponseCount, find_web_count
     companyName = companyName.strip('"')
     domainSource = 'linkedin'
     pendingLinkedInResponseCount -= 1
+    
+    
+
+
     if response.error:
+
+        http_client = httpclient.AsyncHTTPClient()
+
+        if find_web_count <= 3:
+            request = getProxyRequest(response.effective_url)
+            callback = functools.partial(findWebsite, companyName, message)
+            http_client.fetch(request, callback)
+
+            find_web_count += 1
+
+        # count = 0
+        # while count < 3:
+        #     check_response(response.effective_url,message, companyName)
+        #     count += 1
+
         logger.error('findWebsite - ERROR : %s' % response.error)
         logger.info(r'')
+
     else:
         logger.info(r'findWebsite Received response %s' % response.code)
         tree = html.fromstring(response.body)
@@ -331,8 +378,13 @@ def findWebsite(companyName, message, response):
                 else:
                     publishMessage(message, Status_Exchange)
                     publishMessage(message, Pattern_Exchange)
-    if pendingLinkedInResponseCount == 0:
+    if pendingLinkedInResponseCount == 0 and find_web_count == 4:
         ioloop.IOLoop.instance().stop()
+
+
+
+
+
 
 
 def findEmails(
@@ -344,12 +396,21 @@ def findEmails(
     """
         findEmails is a handler function to all the asynchronous calls
     """
+    import pdb; pdb.set_trace()
 
     global verifiedDomainSet, pendingEmailResponseCount
     logger.error('In findEmails')
     if response.error:
-        logger.error('findEmails - ERROR : %s' % response.error)
-        logger.info(r'')
+
+        count = 0
+        while count <= 3:
+            logger.error('findEmails - ERROR : %s' % response.error)
+            logger.info(r'')
+            getDomains(message)
+            count += 1
+
+
+
     else:
         emailSet = findEmailsInHtml(response.body, message)
         if len(emailSet) > 0:
@@ -371,7 +432,7 @@ def getDomainFromWebsite(companyName, domainSource):
     """
         getDomainFromWebsite is a function get to domain from an webaddress/ website
     """
-
+    import pdb; pdb.set_trace()
     global domainSet, urlSet
     try:
         logger.info(r'Get Domain from Company Website: %s' % urlSet)
@@ -403,6 +464,7 @@ def crawlGoogleForDomainNamePhase1(companyName, message):
         crawlGoogleForDomainNamePhase1 is a step 1 to verfiy domain names 
         using google query for pattern: "info@companyName" OR "emailcompanyName"
     """
+    import pdb; pdb.set_trace()
 
     global pendingEmailResponseCount, verifiedDomainSet, domainSet
     logger.info('Domain Verification for company[Pattern1] : %s'
@@ -437,6 +499,7 @@ def crawlGoogleForDomainNamePhase2(companyName, message, queryPhase=1):
         Pattern 2:q=email " <companyName> " & 
         Pattern 3:q=" @<companyName> "email details
     """
+    import pdb; pdb.set_trace()
 
     global pendingEmailResponseCount
     http_client = httpclient.AsyncHTTPClient()
@@ -463,6 +526,7 @@ def getDomainFromCrunchBase(companyName, message):
     """
         Get domain name from crunchbase api for given companyName
     """
+    import pdb; pdb.set_trace()
 
     global crunchbaseUrlSet, crunchbaseDomainSet, verifiedDomainSet
     logger.info('Get all domains from CrunchBase: %s'
@@ -517,12 +581,21 @@ def findURL(companyName, request_source, message, response):
         page if and only if companyName is substring of 
         title, snippet for each google result
     """
+    import pdb; pdb.set_trace()
 
     global urlSet
     companyName = companyName.strip('"')
     if response.error:
-        logger.error('findUrlsAndEmails - ERROR : %s' % response.error)
-        logger.info(r'')
+        count = 0
+        while count <= 3:
+            logger.error('findUrlsAndEmails - ERROR : %s' % response.error)
+            logger.info(r'')
+                
+            request = getProxyRequest(url)
+            callback = functools.partial(findEmails, companyName, 'google',
+                                     message)
+            http_client.fetch(request, callback)
+            count += 1
     else:
         logger.info(r'Received response %s' % response.code)
         tree = html.fromstring(response.body)
@@ -568,6 +641,8 @@ def findURL(companyName, request_source, message, response):
 
 
 def getDomains(message):
+    import pdb; pdb.set_trace()
+
     companyName = message['companyName']
     logger.info(r'-' * 10)
     startTime = time.time()

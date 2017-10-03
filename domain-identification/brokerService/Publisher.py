@@ -16,7 +16,7 @@ class RabbitMQPublisher(object):
         @param exchange_name name of the exchange to send messages to
         @param host RabbitMQ server host
         """
-
+        import pdb; pdb.set_trace()
         count = 0
         while count <= 3:
             logger.debug('Initiating channel for rabbitmq')
@@ -38,7 +38,8 @@ class RabbitMQPublisher(object):
             count += 1
 
     def publish(self, message, routing_key):
-        print "routing key==>", routing_key
+        import pdb; pdb.set_trace()
+        print "inside publish routing key==>", routing_key
         """
         Publish message to exchange using routing key
      
@@ -64,6 +65,7 @@ class RabbitMQPublisher(object):
 
     def __getMessage__(self, message):
         
+        import pdb; pdb.set_trace()
         print "inside get message"
 
         logger.debug('Get formatted message to publish %s'

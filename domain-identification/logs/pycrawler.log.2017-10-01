@@ -1,0 +1,213 @@
+[2017-10-01 02:20:13,576] INFO::(P:8423 T:140330042418944)::domain_subscriber - Sun Oct  1 02:20:13 2017
+[2017-10-01 02:20:13,576] INFO::(P:8423 T:140330042418944)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-01 10:19:08,115] INFO::(P:4969 T:140678822397696)::domain_subscriber - Sun Oct  1 10:19:08 2017
+[2017-10-01 10:19:08,132] INFO::(P:4969 T:140678822397696)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-01 10:25:16,903] INFO::(P:4969 T:140678822397696)::domain_subscriber - Request Payload : '{
+    "companyName"       :   "cuelogic",
+    "firstName"         :   "sachin",
+    "lastName"          :   "dane",
+    "middleName"        :   "",
+    "domainName"        :   "",
+    "emailPattern"      :   "",
+    "emailId"           :   "",
+    "batchId"           :   "",
+    "jobId"             :   "",
+    "isEmailVerified"   :   "",
+    "currentPhase"      :   "",
+    "isEmailCatchAll"   :   "",
+    "domainSource"      :   "",
+    "domainMxRecord"    :   ""
+}'
+[2017-10-01 10:25:19,513] INFO::(P:4969 T:140678822397696)::domain_subscriber - ------------------------------
+[2017-10-01 10:42:52,623] INFO::(P:5865 T:140569139611392)::domain_subscriber - Sun Oct  1 10:42:52 2017
+[2017-10-01 10:42:52,623] INFO::(P:5865 T:140569139611392)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-01 10:42:54,750] INFO::(P:5865 T:140569139611392)::domain_subscriber - Request Payload : '{
+    "companyName"       :   "cuelogic",
+    "firstName"         :   "sachin",
+    "lastName"          :   "dane",
+    "middleName"        :   "",
+    "domainName"        :   "",
+    "emailPattern"      :   "",
+    "emailId"           :   "",
+    "batchId"           :   "",
+    "jobId"             :   "",
+    "isEmailVerified"   :   "",
+    "currentPhase"      :   "",
+    "isEmailCatchAll"   :   "",
+    "domainSource"      :   "",
+    "domainMxRecord"    :   ""
+}'
+[2017-10-01 10:42:58,007] INFO::(P:5865 T:140569139611392)::domain_subscriber - ------------------------------
+[2017-10-01 10:48:08,588] INFO::(P:6142 T:140595481343744)::domain_subscriber - Sun Oct  1 10:48:08 2017
+[2017-10-01 10:48:08,588] INFO::(P:6142 T:140595481343744)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-01 10:48:10,617] INFO::(P:6142 T:140595481343744)::domain_subscriber - Request Payload : '{
+    "companyName"       :   "cuelogic",
+    "firstName"         :   "sachin",
+    "lastName"          :   "dane",
+    "middleName"        :   "",
+    "domainName"        :   "",
+    "emailPattern"      :   "",
+    "emailId"           :   "",
+    "batchId"           :   "",
+    "jobId"             :   "",
+    "isEmailVerified"   :   "",
+    "currentPhase"      :   "",
+    "isEmailCatchAll"   :   "",
+    "domainSource"      :   "",
+    "domainMxRecord"    :   ""
+}'
+[2017-10-01 10:48:28,530] INFO::(P:6163 T:140239889377024)::domain_subscriber - Sun Oct  1 10:48:28 2017
+[2017-10-01 10:48:28,530] INFO::(P:6163 T:140239889377024)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-01 10:50:03,511] INFO::(P:6163 T:140239889377024)::domain_subscriber - Request Payload : {
+    "companyName"       :   "cuelogic",
+    "firstName"         :   "sachin",
+    "lastName"          :   "dane",
+    "middleName"        :   "",
+    "domainName"        :   "",
+    "emailPattern"      :   "",
+    "emailId"           :   "",
+    "batchId"           :   "",
+    "jobId"             :   "",
+    "isEmailVerified"   :   "",
+    "currentPhase"      :   "",
+    "isEmailCatchAll"   :   "",
+    "domainSource"      :   "",
+    "domainMxRecord"    :   ""
+}
+[2017-10-01 10:50:14,521] INFO::(P:6163 T:140239889377024)::domain_subscriber - ------------------------------
+[2017-10-01 10:50:50,110] INFO::(P:6163 T:140239889377024)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-01 10:51:02,425] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:02,426] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:02,692] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:02,693] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:02,959] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:02,960] INFO::(P:6163 T:140239889377024)::domain_crawler - Start time -->> 1506835262.96
+[2017-10-01 10:51:02,961] INFO::(P:6163 T:140239889377024)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-01 10:51:02,963] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:15,628] INFO::(P:6163 T:140239889377024)::domain_subscriber - No module named pycurl
+[2017-10-01 10:51:19,089] INFO::(P:6163 T:140239889377024)::domain_subscriber - Request Payload : '{
+    "companyName"       :   "cuelogic",
+    "firstName"         :   "sachin",
+    "lastName"          :   "dane",
+    "middleName"        :   "",
+    "domainName"        :   "",
+    "emailPattern"      :   "",
+    "emailId"           :   "",
+    "batchId"           :   "",
+    "jobId"             :   "",
+    "isEmailVerified"   :   "",
+    "currentPhase"      :   "",
+    "isEmailCatchAll"   :   "",
+    "domainSource"      :   "",
+    "domainMxRecord"    :   ""
+}'
+[2017-10-01 10:51:19,089] INFO::(P:6163 T:140239889377024)::domain_subscriber - ------------------------------
+[2017-10-01 10:51:19,090] INFO::(P:6163 T:140239889377024)::domain_subscriber - No JSON object could be decoded
+[2017-10-01 10:51:20,197] INFO::(P:6163 T:140239889377024)::domain_subscriber - Request Payload : {
+    "companyName"       :   "cuelogic",
+    "firstName"         :   "sachin",
+    "lastName"          :   "dane",
+    "middleName"        :   "",
+    "domainName"        :   "",
+    "emailPattern"      :   "",
+    "emailId"           :   "",
+    "batchId"           :   "",
+    "jobId"             :   "",
+    "isEmailVerified"   :   "",
+    "currentPhase"      :   "",
+    "isEmailCatchAll"   :   "",
+    "domainSource"      :   "",
+    "domainMxRecord"    :   ""
+}
+[2017-10-01 10:51:20,197] INFO::(P:6163 T:140239889377024)::domain_subscriber - ------------------------------
+[2017-10-01 10:51:20,198] INFO::(P:6163 T:140239889377024)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-01 10:51:20,216] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:20,217] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:20,481] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:20,481] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:20,746] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:20,747] INFO::(P:6163 T:140239889377024)::domain_crawler - Start time -->> 1506835280.75
+[2017-10-01 10:51:20,747] INFO::(P:6163 T:140239889377024)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-01 10:51:20,747] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:20,748] INFO::(P:6163 T:140239889377024)::domain_subscriber - No module named pycurl
+[2017-10-01 10:51:21,978] INFO::(P:6163 T:140239889377024)::domain_subscriber - Request Payload : {
+    "companyName"       :   "cuelogic",
+    "firstName"         :   "sachin",
+    "lastName"          :   "dane",
+    "middleName"        :   "",
+    "domainName"        :   "",
+    "emailPattern"      :   "",
+    "emailId"           :   "",
+    "batchId"           :   "",
+    "jobId"             :   "",
+    "isEmailVerified"   :   "",
+    "currentPhase"      :   "",
+    "isEmailCatchAll"   :   "",
+    "domainSource"      :   "",
+    "domainMxRecord"    :   ""
+}
+[2017-10-01 10:51:21,978] INFO::(P:6163 T:140239889377024)::domain_subscriber - ------------------------------
+[2017-10-01 10:51:21,978] INFO::(P:6163 T:140239889377024)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-01 10:51:21,979] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:21,979] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:22,256] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:22,256] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:22,520] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:22,520] INFO::(P:6163 T:140239889377024)::domain_crawler - Start time -->> 1506835282.52
+[2017-10-01 10:51:22,521] INFO::(P:6163 T:140239889377024)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-01 10:51:22,521] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:22,522] INFO::(P:6163 T:140239889377024)::domain_subscriber - No module named pycurl
+[2017-10-01 10:51:23,754] INFO::(P:6163 T:140239889377024)::domain_subscriber - Request Payload : {
+    "companyName"       :   "cuelogic",
+    "firstName"         :   "sachin",
+    "lastName"          :   "dane",
+    "middleName"        :   "",
+    "domainName"        :   "",
+    "emailPattern"      :   "",
+    "emailId"           :   "",
+    "batchId"           :   "",
+    "jobId"             :   "",
+    "isEmailVerified"   :   "",
+    "currentPhase"      :   "",
+    "isEmailCatchAll"   :   "",
+    "domainSource"      :   "",
+    "domainMxRecord"    :   ""
+}
+[2017-10-01 10:51:23,754] INFO::(P:6163 T:140239889377024)::domain_subscriber - ------------------------------
+[2017-10-01 10:51:23,755] INFO::(P:6163 T:140239889377024)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-01 10:51:23,755] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:23,756] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:24,025] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:24,026] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:24,290] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:24,290] INFO::(P:6163 T:140239889377024)::domain_crawler - Start time -->> 1506835284.29
+[2017-10-01 10:51:24,291] INFO::(P:6163 T:140239889377024)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-01 10:51:24,291] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:24,292] INFO::(P:6163 T:140239889377024)::domain_subscriber - No module named pycurl
+[2017-10-01 10:51:27,245] INFO::(P:6163 T:140239889377024)::domain_subscriber - Request Payload : {
+    "companyName"       :   "cuelogic",
+    "firstName"         :   "sachin",
+    "lastName"          :   "dane",
+    "middleName"        :   "",
+    "domainName"        :   "",
+    "emailPattern"      :   "",
+    "emailId"           :   "",
+    "batchId"           :   "",
+    "jobId"             :   "",
+    "isEmailVerified"   :   "",
+    "currentPhase"      :   "",
+    "isEmailCatchAll"   :   "",
+    "domainSource"      :   "",
+    "domainMxRecord"    :   ""
+}
+[2017-10-01 10:51:27,245] INFO::(P:6163 T:140239889377024)::domain_subscriber - ------------------------------
+[2017-10-01 10:51:27,246] INFO::(P:6163 T:140239889377024)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-01 10:51:27,247] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:27,247] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:27,512] INFO::(P:6163 T:140239889377024)::utils - Get all domains for company : cuelogic
+[2017-10-01 10:51:27,513] INFO::(P:6163 T:140239889377024)::utils - Exiting get all domains for cuelogic
+[2017-10-01 10:51:27,777] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:27,777] INFO::(P:6163 T:140239889377024)::domain_crawler - Start time -->> 1506835287.78
+[2017-10-01 10:51:27,778] INFO::(P:6163 T:140239889377024)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-01 10:51:27,778] INFO::(P:6163 T:140239889377024)::domain_crawler - ----------
+[2017-10-01 10:51:27,779] INFO::(P:6163 T:140239889377024)::domain_subscriber - No module named pycurl

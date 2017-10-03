@@ -1,0 +1,294 @@
+[2017-10-02 10:58:52,058] INFO::(P:5211 T:140059279603456)::domain_subscriber - Mon Oct  2 10:58:52 2017
+[2017-10-02 10:58:52,059] INFO::(P:5211 T:140059279603456)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-02 11:36:02,541] INFO::(P:10595 T:140037518010112)::domain_subscriber - Mon Oct  2 11:36:02 2017
+[2017-10-02 11:36:02,541] INFO::(P:10595 T:140037518010112)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-02 11:37:42,247] INFO::(P:10595 T:140037518010112)::domain_subscriber - Request Payload : {
+	"companyName": "cuelogic",
+	"firstName": "sachin",
+	"lastName": "dane",
+	"middleName": "",
+	"domainName": "",
+	"emailPattern": "",
+	"emailId": "",
+	"batchId": "",
+	"jobId": "",
+	"isEmailVerified": "",
+	"currentPhase": "",
+	"isEmailCatchAll": "",
+	"domainSource": "",
+	"domainMxRecord": ""
+}
+[2017-10-02 11:37:47,250] INFO::(P:10595 T:140037518010112)::domain_subscriber - ------------------------------
+[2017-10-02 11:37:59,487] INFO::(P:10595 T:140037518010112)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-02 11:40:22,654] INFO::(P:10595 T:140037518010112)::utils - Get all domains for company : cuelogic
+[2017-10-02 11:40:45,731] INFO::(P:10595 T:140037518010112)::utils - Exiting get all domains for cuelogic
+[2017-10-02 11:44:49,557] INFO::(P:10595 T:140037518010112)::utils - Get all domains for company : cuelogic
+[2017-10-02 11:44:49,558] INFO::(P:10595 T:140037518010112)::utils - Exiting get all domains for cuelogic
+[2017-10-02 11:46:00,605] INFO::(P:10595 T:140037518010112)::domain_crawler - ----------
+[2017-10-02 11:46:10,155] INFO::(P:10595 T:140037518010112)::domain_crawler - Start time -->> 1506924962.12
+[2017-10-02 11:46:14,561] INFO::(P:10595 T:140037518010112)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-02 11:46:15,684] INFO::(P:10595 T:140037518010112)::domain_crawler - ----------
+[2017-10-02 11:47:21,382] INFO::(P:10595 T:140037518010112)::domain_crawler - Google Search results to fetch linked Url: cuelogic
+[2017-10-02 11:47:21,401] INFO::(P:10595 T:140037518010112)::domain_crawler - Crawling http://www.google.com/search?q=cuelogic+linkedin
+[2017-10-02 11:47:41,406] ERROR::(P:10595 T:140037518010112)::domain_crawler - In crawlLinkedInForCompanyName
+[2017-10-02 11:47:41,408] ERROR::(P:10595 T:140037518010112)::domain_crawler - crawlLinkedInForCompanyName - ERROR : HTTP 599: Resolving timed out after 20000 milliseconds
+[2017-10-02 11:47:41,409] INFO::(P:10595 T:140037518010112)::domain_crawler - 
+[2017-10-02 11:48:32,468] INFO::(P:10595 T:140037518010112)::domain_crawler - Google Search results to fetch : cuelogic
+[2017-10-02 11:48:32,470] INFO::(P:10595 T:140037518010112)::domain_crawler - Crawling http://www.google.com/search?q=%22cuelogic%22&gl=us
+[2017-10-02 11:48:52,474] ERROR::(P:10595 T:140037518010112)::domain_crawler - findUrlsAndEmails - ERROR : HTTP 599: Resolving timed out after 20000 milliseconds
+[2017-10-02 11:48:52,476] INFO::(P:10595 T:140037518010112)::domain_crawler - 
+[2017-10-02 11:48:52,477] INFO::(P:10595 T:140037518010112)::domain_crawler - URL FOUND []
+[2017-10-02 11:49:06,267] INFO::(P:10595 T:140037518010112)::domain_crawler - Get Domain from Company Website: []
+[2017-10-02 11:49:06,269] INFO::(P:10595 T:140037518010112)::domain_crawler - Company Websites: []
+[2017-10-02 11:49:32,306] INFO::(P:10595 T:140037518010112)::domain_crawler - Domain Verification for company[Pattern1] : cuelogic
+[2017-10-02 11:51:01,590] INFO::(P:10595 T:140037518010112)::utils - Get all domains for company : cuelogic
+[2017-10-02 11:51:01,590] INFO::(P:10595 T:140037518010112)::utils - Exiting get all domains for cuelogic
+[2017-10-02 11:51:08,282] INFO::(P:10595 T:140037518010112)::utils - Get all domains for company : cuelogic
+[2017-10-02 11:51:08,283] INFO::(P:10595 T:140037518010112)::utils - Exiting get all domains for cuelogic
+[2017-10-02 11:51:08,283] INFO::(P:10595 T:140037518010112)::domain_crawler - ----------
+[2017-10-02 11:51:08,284] INFO::(P:10595 T:140037518010112)::domain_crawler - Resetting all globals
+[2017-10-02 11:51:08,284] INFO::(P:10595 T:140037518010112)::domain_crawler - ----------
+[2017-10-02 11:51:08,284] INFO::(P:10595 T:140037518010112)::domain_crawler - []
+[2017-10-02 11:51:08,285] INFO::(P:10595 T:140037518010112)::domain_crawler - Publishing message {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''} ,statusExchange
+[2017-10-02 12:11:20,128] INFO::(P:10595 T:140037518010112)::domain_subscriber - 'requestInitiatedTime'
+[2017-10-02 12:11:20,130] ERROR::(P:10595 T:140037518010112)::domain_subscriber - 
+[2017-10-02 14:54:56,239] INFO::(P:18670 T:140716695738112)::domain_subscriber - Mon Oct  2 14:54:56 2017
+[2017-10-02 14:54:56,240] INFO::(P:18670 T:140716695738112)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-02 14:56:43,411] INFO::(P:18670 T:140716695738112)::domain_subscriber - Request Payload : {
+	"companyName": "cuelogic",
+	"firstName": "sachin",
+	"lastName": "dane",
+	"middleName": "",
+	"domainName": "",
+	"emailPattern": "",
+	"emailId": "",
+	"batchId": "",
+	"jobId": "",
+	"isEmailVerified": "",
+	"currentPhase": "",
+	"isEmailCatchAll": "",
+	"domainSource": "",
+	"domainMxRecord": ""
+}
+[2017-10-02 15:01:05,908] INFO::(P:18670 T:140716695738112)::domain_subscriber - ------------------------------
+[2017-10-02 15:02:00,698] INFO::(P:18670 T:140716695738112)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-02 15:02:13,893] INFO::(P:18670 T:140716695738112)::utils - Get all domains for company : cuelogic
+[2017-10-02 15:02:19,906] INFO::(P:18670 T:140716695738112)::utils - Exiting get all domains for cuelogic
+[2017-10-02 15:02:29,284] INFO::(P:18670 T:140716695738112)::utils - Get all domains for company : cuelogic
+[2017-10-02 15:02:33,935] INFO::(P:18670 T:140716695738112)::utils - Exiting get all domains for cuelogic
+[2017-10-02 15:02:43,255] INFO::(P:18670 T:140716695738112)::domain_crawler - ----------
+[2017-10-02 15:02:46,559] INFO::(P:18670 T:140716695738112)::domain_crawler - Start time -->> 1506936765.2
+[2017-10-02 15:02:50,167] INFO::(P:18670 T:140716695738112)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-02 15:02:51,363] INFO::(P:18670 T:140716695738112)::domain_crawler - ----------
+[2017-10-02 15:03:09,923] INFO::(P:18670 T:140716695738112)::domain_crawler - Google Search results to fetch linked Url: cuelogic
+[2017-10-02 15:04:06,905] INFO::(P:18670 T:140716695738112)::domain_crawler - Crawling http://www.google.com/search?q=cuelogic+linkedin
+[2017-10-02 15:04:56,078] ERROR::(P:18670 T:140716695738112)::domain_crawler - In crawlLinkedInForCompanyName
+[2017-10-02 15:04:56,079] INFO::(P:18670 T:140716695738112)::domain_crawler - LinkedIn URL : cuelogic
+[2017-10-02 15:26:23,808] INFO::(P:18670 T:140716695738112)::domain_crawler - Received response 200
+[2017-10-02 15:26:23,837] INFO::(P:18670 T:140716695738112)::domain_crawler - ******************************
+[2017-10-02 15:26:23,839] INFO::(P:18670 T:140716695738112)::domain_crawler - ++++++++++++++++++++++++++++++
+[2017-10-02 15:26:23,839] INFO::(P:18670 T:140716695738112)::domain_crawler -  
+[2017-10-02 15:26:23,839] INFO::(P:18670 T:140716695738112)::domain_crawler - Cuelogic Technologies | LinkedIn
+[2017-10-02 15:26:23,840] INFO::(P:18670 T:140716695738112)::domain_crawler - ++++++++++++++++++++++++++++++
+[2017-10-02 15:27:07,077] INFO::(P:18670 T:140716695738112)::utils - cuelogic
+[2017-10-02 15:27:07,077] INFO::(P:18670 T:140716695738112)::domain_crawler - Removing Stopwords from CompanyName: ['cuelogic', 'cuelogic']
+[2017-10-02 15:27:07,077] INFO::(P:18670 T:140716695738112)::domain_crawler - Title List to match: ['cuelogic', ['cuelogic', 'technologies', '|', 'linkedin']]
+[2017-10-02 15:27:07,080] INFO::(P:18670 T:140716695738112)::domain_crawler - https://de.linkedin.com/company/cuelogic-technologies
+[2017-10-02 15:27:07,080] INFO::(P:18670 T:140716695738112)::domain_crawler - In linkedInProxyRequest
+[2017-10-02 15:29:52,488] INFO::(P:18670 T:140716695738112)::domain_crawler - Crawling https://googleweblight.com/?lite_url=https://de.linkedin.com/company/cuelogic-technologies
+[2017-10-02 15:30:58,277] INFO::(P:18670 T:140716695738112)::domain_crawler - Crawling https://googleweblight.com/?lite_url=https://de.linkedin.com/company/cuelogic-technologies
+[2017-10-02 15:32:46,615] ERROR::(P:18670 T:140716695738112)::domain_crawler - findWebsite - ERROR : HTTP 503: Service Unavailable
+[2017-10-02 15:32:46,616] INFO::(P:18670 T:140716695738112)::domain_crawler - 
+[2017-10-02 15:32:47,193] ERROR::(P:18670 T:140716695738112)::domain_crawler - findWebsite - ERROR : HTTP 503: Service Unavailable
+[2017-10-02 15:32:47,193] INFO::(P:18670 T:140716695738112)::domain_crawler - 
+[2017-10-02 16:10:24,068] INFO::(P:18670 T:140716695738112)::domain_crawler - Google Search results to fetch : cuelogic
+[2017-10-02 16:10:36,441] INFO::(P:18670 T:140716695738112)::domain_crawler - Crawling http://www.google.com/search?q=%22cuelogic%22&gl=us
+[2017-10-02 16:11:52,528] ERROR::(P:18670 T:140716695738112)::domain_crawler - findUrlsAndEmails - ERROR : HTTP 599: Operation timed out after 7729 milliseconds with 98486 bytes received
+[2017-10-02 16:11:52,530] INFO::(P:18670 T:140716695738112)::domain_crawler - 
+[2017-10-02 16:11:52,531] INFO::(P:18670 T:140716695738112)::domain_crawler - URL FOUND []
+[2017-10-02 17:02:11,556] INFO::(P:18670 T:140716695738112)::domain_crawler - Get Domain from Company Website: []
+[2017-10-02 17:02:12,856] INFO::(P:18670 T:140716695738112)::domain_crawler - Company Websites: []
+[2017-10-02 17:02:18,413] INFO::(P:18670 T:140716695738112)::domain_crawler - Domain Verification for company[Pattern1] : cuelogic
+[2017-10-02 17:02:25,633] INFO::(P:18670 T:140716695738112)::utils - Get all domains for company : cuelogic
+[2017-10-02 17:02:27,548] INFO::(P:18670 T:140716695738112)::utils - Exiting get all domains for cuelogic
+[2017-10-02 17:03:13,550] INFO::(P:18670 T:140716695738112)::utils - Get all domains for company : cuelogic
+[2017-10-02 17:03:15,731] INFO::(P:18670 T:140716695738112)::utils - Exiting get all domains for cuelogic
+[2017-10-02 17:03:21,361] INFO::(P:18670 T:140716695738112)::domain_crawler - ----------
+[2017-10-02 17:03:22,072] INFO::(P:18670 T:140716695738112)::domain_crawler - Resetting all globals
+[2017-10-02 17:03:51,217] INFO::(P:18670 T:140716695738112)::domain_crawler - ----------
+[2017-10-02 17:03:54,568] INFO::(P:18670 T:140716695738112)::domain_crawler - []
+[2017-10-02 17:04:06,780] INFO::(P:18670 T:140716695738112)::domain_crawler - Publishing message {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''} ,statusExchange
+[2017-10-02 17:04:44,217] INFO::(P:18670 T:140716695738112)::domain_subscriber - 'requestInitiatedTime'
+[2017-10-02 17:04:44,219] ERROR::(P:18670 T:140716695738112)::domain_subscriber - 
+[2017-10-02 17:04:54,227] INFO::(P:18670 T:140716518909696)::domain_subscriber - Mon Oct  2 17:04:54 2017
+[2017-10-02 17:04:54,228] INFO::(P:18670 T:140716518909696)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-02 18:38:13,295] INFO::(P:24403 T:139915557054208)::domain_subscriber - Mon Oct  2 18:38:13 2017
+[2017-10-02 18:38:13,296] INFO::(P:24403 T:139915557054208)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-02 18:38:20,760] INFO::(P:24403 T:139915557054208)::domain_subscriber - Request Payload : {
+	"companyName": "cuelogic",
+	"firstName": "sachin",
+	"lastName": "dane",
+	"middleName": "",
+	"domainName": "",
+	"emailPattern": "",
+	"emailId": "",
+	"batchId": "",
+	"jobId": "",
+	"isEmailVerified": "",
+	"currentPhase": "",
+	"isEmailCatchAll": "",
+	"domainSource": "",
+	"domainMxRecord": ""
+}
+[2017-10-02 18:38:20,760] INFO::(P:24403 T:139915557054208)::domain_subscriber - ------------------------------
+[2017-10-02 18:38:20,761] INFO::(P:24403 T:139915557054208)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-02 18:38:39,063] INFO::(P:24403 T:139915557054208)::utils - Get all domains for company : cuelogic
+[2017-10-02 18:38:39,063] INFO::(P:24403 T:139915557054208)::utils - Exiting get all domains for cuelogic
+[2017-10-02 18:38:46,652] INFO::(P:24403 T:139915557054208)::utils - Get all domains for company : cuelogic
+[2017-10-02 18:38:46,652] INFO::(P:24403 T:139915557054208)::utils - Exiting get all domains for cuelogic
+[2017-10-02 18:38:52,554] INFO::(P:24403 T:139915557054208)::domain_crawler - ----------
+[2017-10-02 18:38:52,554] INFO::(P:24403 T:139915557054208)::domain_crawler - Start time -->> 1506949732.55
+[2017-10-02 18:38:52,555] INFO::(P:24403 T:139915557054208)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-02 18:38:52,555] INFO::(P:24403 T:139915557054208)::domain_crawler - ----------
+[2017-10-02 18:38:58,061] INFO::(P:24403 T:139915557054208)::domain_crawler - Google Search results to fetch linked Url: cuelogic
+[2017-10-02 18:39:00,161] INFO::(P:24403 T:139915557054208)::domain_crawler - Crawling http://www.google.com/search?q=cuelogic+linkedin
+[2017-10-02 18:39:47,962] ERROR::(P:24403 T:139915557054208)::domain_crawler - In crawlLinkedInForCompanyName
+[2017-10-02 18:39:47,962] INFO::(P:24403 T:139915557054208)::domain_crawler - LinkedIn URL : cuelogic
+[2017-10-02 18:39:58,337] INFO::(P:24403 T:139915557054208)::domain_crawler - Received response 200
+[2017-10-02 18:39:58,350] INFO::(P:24403 T:139915557054208)::domain_crawler - ******************************
+[2017-10-02 18:39:58,353] INFO::(P:24403 T:139915557054208)::domain_crawler - ++++++++++++++++++++++++++++++
+[2017-10-02 18:39:58,353] INFO::(P:24403 T:139915557054208)::domain_crawler -   cuelogic linkedin cuelogic
+[2017-10-02 18:39:58,353] INFO::(P:24403 T:139915557054208)::domain_crawler - Cuelogic Technologies | LinkedIn
+[2017-10-02 18:39:58,354] INFO::(P:24403 T:139915557054208)::domain_crawler - ++++++++++++++++++++++++++++++
+[2017-10-02 18:40:13,273] INFO::(P:24403 T:139915557054208)::utils - cuelogic
+[2017-10-02 18:40:13,273] INFO::(P:24403 T:139915557054208)::domain_crawler - Removing Stopwords from CompanyName: ['cuelogic', 'cuelogic']
+[2017-10-02 18:40:13,274] INFO::(P:24403 T:139915557054208)::domain_crawler - Title List to match: ['cuelogic', ['cuelogic', 'technologies', '|', 'linkedin']]
+[2017-10-02 18:40:13,277] INFO::(P:24403 T:139915557054208)::domain_crawler - https://www.linkedin.com/company/cuelogic-technologies
+[2017-10-02 18:40:13,277] INFO::(P:24403 T:139915557054208)::domain_crawler - In linkedInProxyRequest
+[2017-10-02 18:40:21,973] INFO::(P:24403 T:139915557054208)::domain_crawler - Crawling https://googleweblight.com/?lite_url=https://www.linkedin.com/company/cuelogic-technologies
+[2017-10-02 18:40:26,046] INFO::(P:24403 T:139915557054208)::domain_crawler - Crawling https://googleweblight.com/?lite_url=https://in.linkedin.com/company/cuelogic-technologies
+[2017-10-02 18:40:40,380] ERROR::(P:24403 T:139915557054208)::domain_crawler - findWebsite - ERROR : HTTP 503: Service Unavailable
+[2017-10-02 18:40:40,381] INFO::(P:24403 T:139915557054208)::domain_crawler - 
+[2017-10-02 18:41:16,066] ERROR::(P:24403 T:139915557054208)::domain_crawler - findWebsite - ERROR : HTTP 599: Operation timed out after 47049 milliseconds with 0 bytes received
+[2017-10-02 18:41:16,066] INFO::(P:24403 T:139915557054208)::domain_crawler - 
+[2017-10-02 18:42:01,166] INFO::(P:24403 T:139915557054208)::domain_crawler - Google Search results to fetch : cuelogic
+[2017-10-02 18:42:02,481] INFO::(P:24403 T:139915557054208)::domain_crawler - Crawling http://www.google.com/search?q=%22cuelogic%22&gl=us
+[2017-10-02 18:42:48,216] INFO::(P:24403 T:139915557054208)::domain_crawler - Received response 200
+[2017-10-02 18:43:00,133] INFO::(P:24403 T:139915557054208)::utils - cuelogic
+[2017-10-02 18:43:00,133] INFO::(P:24403 T:139915557054208)::domain_crawler - Removing Stopwords from CompanyName: ['cuelogic', 'cuelogic']
+[2017-10-02 18:43:00,134] INFO::(P:24403 T:139915557054208)::domain_crawler - Title List to match: ['cuelogic', ['']]
+[2017-10-02 18:43:00,134] INFO::(P:24403 T:139915557054208)::domain_crawler - URL FOUND []
+[2017-10-02 18:43:16,189] INFO::(P:24403 T:139915557054208)::domain_crawler - Get Domain from Company Website: []
+[2017-10-02 18:43:17,634] INFO::(P:24403 T:139915557054208)::domain_crawler - Company Websites: []
+[2017-10-02 18:43:43,843] INFO::(P:24403 T:139915557054208)::domain_crawler - Domain Verification for company[Pattern1] : cuelogic
+[2017-10-02 18:44:01,448] INFO::(P:24403 T:139915557054208)::utils - Get all domains for company : cuelogic
+[2017-10-02 18:44:03,693] INFO::(P:24403 T:139915557054208)::utils - Exiting get all domains for cuelogic
+[2017-10-02 18:44:11,215] INFO::(P:24403 T:139915557054208)::utils - Get all domains for company : cuelogic
+[2017-10-02 18:44:31,096] INFO::(P:24403 T:139915557054208)::utils - Exiting get all domains for cuelogic
+[2017-10-02 18:44:46,782] INFO::(P:24403 T:139915557054208)::domain_crawler - ----------
+[2017-10-02 18:44:47,264] INFO::(P:24403 T:139915557054208)::domain_crawler - Resetting all globals
+[2017-10-02 18:44:48,471] INFO::(P:24403 T:139915557054208)::domain_crawler - ----------
+[2017-10-02 18:44:50,027] INFO::(P:24403 T:139915557054208)::domain_crawler - []
+[2017-10-02 18:44:55,332] INFO::(P:24403 T:139915557054208)::domain_crawler - Publishing message {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''} ,statusExchange
+[2017-10-02 18:46:05,541] INFO::(P:24403 T:139915557054208)::domain_subscriber - 'requestInitiatedTime'
+[2017-10-02 18:46:05,543] ERROR::(P:24403 T:139915557054208)::domain_subscriber - 
+[2017-10-02 19:06:52,982] INFO::(P:24403 T:139915557054208)::domain_subscriber - Request Payload : {
+	"companyName": "cuelogic",
+	"firstName": "sachin",
+	"lastName": "dane"
+}
+[2017-10-02 19:06:52,983] INFO::(P:24403 T:139915557054208)::domain_subscriber - ------------------------------
+[2017-10-02 19:06:52,983] INFO::(P:24403 T:139915557054208)::domain_subscriber - Payload : {u'lastName': u'dane', 'currentPhase': 1, u'firstName': u'sachin', u'companyName': u'cuelogic'}
+[2017-10-02 19:07:08,163] INFO::(P:24403 T:139915557054208)::utils - Get all domains for company : cuelogic
+[2017-10-02 19:07:08,164] INFO::(P:24403 T:139915557054208)::utils - Exiting get all domains for cuelogic
+[2017-10-02 19:07:09,244] INFO::(P:24403 T:139915557054208)::utils - Get all domains for company : cuelogic
+[2017-10-02 19:07:09,245] INFO::(P:24403 T:139915557054208)::utils - Exiting get all domains for cuelogic
+[2017-10-02 19:07:10,215] INFO::(P:24403 T:139915557054208)::domain_crawler - ----------
+[2017-10-02 19:07:10,216] INFO::(P:24403 T:139915557054208)::domain_crawler - Start time -->> 1506951430.22
+[2017-10-02 19:07:10,216] INFO::(P:24403 T:139915557054208)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-02 19:07:10,216] INFO::(P:24403 T:139915557054208)::domain_crawler - ----------
+[2017-10-02 19:07:11,113] INFO::(P:24403 T:139915557054208)::domain_crawler - Google Search results to fetch linked Url: cuelogic
+[2017-10-02 19:07:12,129] INFO::(P:24403 T:139915557054208)::domain_crawler - Crawling http://www.google.com/search?q=cuelogic+linkedin
+[2017-10-02 19:37:34,604] INFO::(P:26713 T:140521950422784)::domain_subscriber - Mon Oct  2 19:37:34 2017
+[2017-10-02 19:37:34,606] INFO::(P:26713 T:140521950422784)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-02 19:44:08,985] INFO::(P:27159 T:140651773077248)::domain_subscriber - Mon Oct  2 19:44:08 2017
+[2017-10-02 19:44:08,986] INFO::(P:27159 T:140651773077248)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-02 19:47:33,180] INFO::(P:27159 T:140651773077248)::domain_subscriber - Request Payload : {
+	"companyName": "cuelogic",
+	"firstName": "sachin",
+	"lastName": "dane",
+	"middleName": "",
+	"domainName": "",
+	"emailPattern": "",
+	"emailId": "",
+	"batchId": "",
+	"jobId": "",
+	"isEmailVerified": "",
+	"currentPhase": "",
+	"isEmailCatchAll": "",
+	"domainSource": "",
+	"domainMxRecord": ""
+}
+[2017-10-02 19:48:58,792] INFO::(P:27159 T:140651773077248)::domain_subscriber - ------------------------------
+[2017-10-02 19:49:35,814] INFO::(P:27159 T:140651773077248)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-02 20:03:20,572] INFO::(P:27159 T:140651773077248)::utils - Get all domains for company : cuelogic
+[2017-10-02 21:08:42,761] INFO::(P:27159 T:140651773077248)::utils - Exiting get all domains for cuelogic
+[2017-10-02 21:10:08,695] INFO::(P:27159 T:140651773077248)::utils - Get all domains for company : cuelogic
+[2017-10-02 21:10:19,924] INFO::(P:27159 T:140651773077248)::utils - Exiting get all domains for cuelogic
+[2017-10-02 21:13:16,382] INFO::(P:27159 T:140651773077248)::domain_crawler - ----------
+[2017-10-02 21:13:30,688] INFO::(P:27159 T:140651773077248)::domain_crawler - Start time -->> 1506959009.15
+[2017-10-02 21:13:38,103] INFO::(P:27159 T:140651773077248)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-02 21:13:38,838] INFO::(P:27159 T:140651773077248)::domain_crawler - ----------
+[2017-10-02 21:15:26,442] INFO::(P:27159 T:140651773077248)::domain_crawler - Google Search results to fetch linked Url: cuelogic
+[2017-10-02 22:04:03,557] INFO::(P:27159 T:140651773077248)::domain_crawler - Crawling http://www.google.com/search?q=cuelogic+linkedin
+[2017-10-02 22:51:21,842] ERROR::(P:27159 T:140651773077248)::domain_crawler - In crawlLinkedInForCompanyName
+[2017-10-02 22:51:21,843] INFO::(P:27159 T:140651773077248)::domain_crawler - LinkedIn URL : cuelogic
+[2017-10-02 22:55:39,667] INFO::(P:1460 T:140356908291840)::domain_subscriber - Mon Oct  2 22:55:39 2017
+[2017-10-02 22:55:39,667] INFO::(P:1460 T:140356908291840)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-02 22:55:53,400] INFO::(P:1460 T:140356908291840)::domain_subscriber - Request Payload : {
+	"companyName": "cuelogic",
+	"firstName": "sachin",
+	"lastName": "dane",
+	"middleName": "",
+	"domainName": "",
+	"emailPattern": "",
+	"emailId": "",
+	"batchId": "",
+	"jobId": "",
+	"isEmailVerified": "",
+	"currentPhase": "",
+	"isEmailCatchAll": "",
+	"domainSource": "",
+	"domainMxRecord": ""
+}
+[2017-10-02 22:55:54,026] INFO::(P:1460 T:140356908291840)::domain_subscriber - ------------------------------
+[2017-10-02 22:55:57,838] INFO::(P:1460 T:140356908291840)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-02 22:56:10,707] INFO::(P:1460 T:140356908291840)::utils - Get all domains for company : cuelogic
+[2017-10-02 22:56:10,708] INFO::(P:1460 T:140356908291840)::utils - Exiting get all domains for cuelogic
+[2017-10-02 22:56:13,631] INFO::(P:1460 T:140356908291840)::utils - Get all domains for company : cuelogic
+[2017-10-02 22:56:26,245] INFO::(P:1460 T:140356908291840)::utils - Exiting get all domains for cuelogic
+[2017-10-02 22:56:33,053] INFO::(P:1460 T:140356908291840)::domain_crawler - ----------
+[2017-10-02 22:56:34,307] INFO::(P:1460 T:140356908291840)::domain_crawler - Start time -->> 1506965193.71
+[2017-10-02 22:56:34,924] INFO::(P:1460 T:140356908291840)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-02 22:56:37,035] INFO::(P:1460 T:140356908291840)::domain_crawler - ----------
+[2017-10-02 22:56:58,301] INFO::(P:1460 T:140356908291840)::domain_crawler - Google Search results to fetch linked Url: cuelogic
+[2017-10-02 22:57:26,893] INFO::(P:1460 T:140356908291840)::domain_crawler - Crawling http://www.google.com/search?q=cuelogic+linkedin
+[2017-10-02 22:59:13,127] ERROR::(P:1460 T:140356908291840)::domain_crawler - In crawlLinkedInForCompanyName
+[2017-10-02 23:02:12,580] INFO::(P:1460 T:140356908291840)::domain_crawler - LinkedIn URL : cuelogic
+[2017-10-02 23:07:01,389] INFO::(P:1460 T:140356908291840)::domain_crawler - Received response 200
+[2017-10-02 23:07:01,399] INFO::(P:1460 T:140356908291840)::domain_crawler - ******************************
+[2017-10-02 23:07:01,401] INFO::(P:1460 T:140356908291840)::domain_crawler - ++++++++++++++++++++++++++++++
+[2017-10-02 23:07:01,401] INFO::(P:1460 T:140356908291840)::domain_crawler -   cuelogic linkedin cuelogic
+[2017-10-02 23:07:01,402] INFO::(P:1460 T:140356908291840)::domain_crawler - Cuelogic Technologies | LinkedIn
+[2017-10-02 23:07:01,402] INFO::(P:1460 T:140356908291840)::domain_crawler - ++++++++++++++++++++++++++++++
+[2017-10-02 23:07:54,996] INFO::(P:1460 T:140356908291840)::utils - cuelogic
+[2017-10-02 23:07:54,997] INFO::(P:1460 T:140356908291840)::domain_crawler - Removing Stopwords from CompanyName: ['cuelogic', 'cuelogic']
+[2017-10-02 23:07:54,997] INFO::(P:1460 T:140356908291840)::domain_crawler - Title List to match: ['cuelogic', ['cuelogic', 'technologies', '|', 'linkedin']]
+[2017-10-02 23:07:55,000] INFO::(P:1460 T:140356908291840)::domain_crawler - https://se.linkedin.com/company/cuelogic-technologies
+[2017-10-02 23:07:55,000] INFO::(P:1460 T:140356908291840)::domain_crawler - In linkedInProxyRequest
+[2017-10-02 23:07:59,938] INFO::(P:1460 T:140356908291840)::domain_crawler - Crawling https://googleweblight.com/?lite_url=https://se.linkedin.com/company/cuelogic-technologies
+[2017-10-02 23:08:01,035] INFO::(P:1460 T:140356908291840)::domain_crawler - Crawling https://googleweblight.com/?lite_url=https://se.linkedin.com/company/cuelogic-technologies
+[2017-10-02 23:08:08,289] ERROR::(P:1460 T:140356908291840)::domain_crawler - findWebsite - ERROR : HTTP 503: Service Unavailable
+[2017-10-02 23:08:08,289] INFO::(P:1460 T:140356908291840)::domain_crawler - 
+[2017-10-02 23:08:39,827] ERROR::(P:1460 T:140356908291840)::domain_crawler - findWebsite - ERROR : HTTP 503: Service Unavailable
+[2017-10-02 23:08:39,828] INFO::(P:1460 T:140356908291840)::domain_crawler - 

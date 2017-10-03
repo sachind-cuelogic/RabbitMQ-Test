@@ -34,6 +34,7 @@ from domainIdentifier.models import Domains, Websites
 
 
 def getMxRecordForDomain(domainName):
+    import pdb; pdb.set_trace()
     mxRecordList = list()
     try:
         mxRecords = dns.resolver.query(domainName, 'MX')
@@ -45,6 +46,7 @@ def getMxRecordForDomain(domainName):
         return mxRecordList
 
 def parseDomain(website):
+    import pdb; pdb.set_trace()
     domain_crawler.logger.info('parseDomain from Company Website: %s' % website)
     website = str(website)
     currentDomain = None
@@ -74,6 +76,7 @@ def parseDomain(website):
 
 
 def removeCompanySuffix(companyName):
+    # import pdb; pdb.set_trace() 
     cleanCompanySuffix1 = companyName.lower()
     for each in COMPANY_SUFFIX_LIST:
         replaceString = "\b" +each.lower()+ "\b"
@@ -82,13 +85,18 @@ def removeCompanySuffix(companyName):
 
 
 def getCleanCompanyName(companyName):
+    import pdb; pdb.set_trace()
+
     cleanCompanyName = removeCompanySuffix(companyName.lower())
     return r''.join(e for e in cleanCompanyName.strip() if e.isalnum())
 
 
 def getCompanyInitials(companyName):
+    # import pdb; pdb.set_trace()
+
     initialList = []
     cleanCompanyName = removeCompanySuffix(companyName)
+    import pdb; pdb.set_trace()
     domain_crawler.logger.info(cleanCompanyName)
     for each in cleanCompanyName.split(r' '):
         if each:
@@ -97,6 +105,8 @@ def getCompanyInitials(companyName):
 
 
 def getCleanDomainName(domainName):
+    import pdb; pdb.set_trace()
+
     domain_crawler.logger.info('In getCleanDomainName %s' % str(domainName))
     (newDomainName, domainSuffix) = (domainName.split('.')[0],
             domainName.split('.')[-1])
@@ -118,7 +128,7 @@ def getProxyRequest(url):
         This method does not actually issue the request.
 
     """
-
+    # import pdb; pdb.set_trace()
     request = httpclient.HTTPRequest(
         url,
         r'GET',
@@ -140,6 +150,8 @@ def getRequest(url):
         This method does not actually issue the request.
 
     """
+    import pdb; pdb.set_trace()
+
     request = httpclient.HTTPRequest(url, r'GET',
             user_agent=domain_crawler.conf.USER_AGENTS[randint(0,
             len(domain_crawler.conf.USER_AGENTS) - 1)])
@@ -152,7 +164,7 @@ def addNewDomain(companyName, newDomain, domainSource):
         Saving domain to database on validating domain & 
         if it does not exists in database against companyName
     """
-
+    import pdb; pdb.set_trace()
     domain_crawler.logger.info(r'In addNewDomain :%s, %s' % (str(companyName),
                 str(newDomain)))
     isValidDomain = validateDomainAgainstCompanyName(newDomain,
@@ -182,6 +194,8 @@ def addNewWebsite(companyName, newWebsite, domainSource):
         if it does not exists in database against companyName
     """
 
+    import pdb; pdb.set_trace()
+
     domain_crawler.logger.info(r'In addNewWebsite :%s, %s' % (str(companyName),
                 str(newWebsite)))
     newCompanyName = removeCompanySuffix(companyName)
@@ -204,6 +218,7 @@ def getCompanyDomain(companyName, currentDomain):
     """
         Check if domain exists against company_name in database
     """
+    import pdb; pdb.set_trace()
 
     newCompanyName = removeCompanySuffix(companyName)
     domain = Domains.query.filter(Domains.company
@@ -221,6 +236,7 @@ def getCompanyWebAddress(companyName, url):
     """
         Check if website exists against company_name in database
     """
+    import pdb; pdb.set_trace()
 
     newCompanyName = removeCompanySuffix(companyName)
     domain_crawler.logger.info('Get web address for company : %s' % str(companyName))
@@ -240,10 +256,9 @@ def getCompanyDomainList(companyName):
     """
         Get all the domains from database for given companyName
     """
-
+    # import pdb; pdb.set_trace()
     domain_crawler.logger.info(r'Get all domains for company : %s' % companyName)
-    domainList = Domains.query.filter(Domains.company
-            == companyName.decode('utf-8'))
+    domainList = Domains.query.filter(Domains.company== companyName.decode('utf-8'))
     domain_crawler.logger.info('Exiting get all domains for %s' % str(companyName))
     return domainList
 
