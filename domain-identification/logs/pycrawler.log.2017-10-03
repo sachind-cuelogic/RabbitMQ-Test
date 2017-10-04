@@ -1,0 +1,51 @@
+[2017-10-03 23:00:40,577] INFO::(P:7073 T:140473916671744)::domain_subscriber - Tue Oct  3 23:00:40 2017
+[2017-10-03 23:00:40,577] INFO::(P:7073 T:140473916671744)::domain_subscriber -  [*] Waiting for messages. To exit press CTRL+C
+[2017-10-03 23:00:40,587] INFO::(P:7073 T:140473916671744)::domain_subscriber - Request Payload : {
+	"companyName": "cuelogic",
+	"firstName": "sachin",
+	"lastName": "dane",
+	"middleName": "",
+	"domainName": "",
+	"emailPattern": "",
+	"emailId": "",
+	"batchId": "",
+	"jobId": "",
+	"isEmailVerified": "",
+	"currentPhase": "",
+	"isEmailCatchAll": "",
+	"domainSource": "",
+	"domainMxRecord": ""
+}
+[2017-10-03 23:00:40,588] INFO::(P:7073 T:140473916671744)::domain_subscriber - ------------------------------
+[2017-10-03 23:00:40,588] INFO::(P:7073 T:140473916671744)::domain_subscriber - Payload : {u'emailId': u'', u'isEmailVerified': u'', u'firstName': u'sachin', u'domainName': u'', u'middleName': u'', u'lastName': u'dane', u'emailPattern': u'', u'companyName': u'cuelogic', u'jobId': u'', u'batchId': u'', u'currentPhase': 1, u'isEmailCatchAll': u'', u'domainMxRecord': u'', u'domainSource': u''}
+[2017-10-03 23:00:40,602] INFO::(P:7073 T:140473916671744)::utils - Get all domains for company : cuelogic
+[2017-10-03 23:00:40,603] INFO::(P:7073 T:140473916671744)::utils - Exiting get all domains for cuelogic
+[2017-10-03 23:00:40,876] INFO::(P:7073 T:140473916671744)::utils - Get all domains for company : cuelogic
+[2017-10-03 23:00:40,876] INFO::(P:7073 T:140473916671744)::utils - Exiting get all domains for cuelogic
+[2017-10-03 23:06:35,262] INFO::(P:7073 T:140473916671744)::domain_crawler - ----------
+[2017-10-03 23:06:35,262] INFO::(P:7073 T:140473916671744)::domain_crawler - Start time -->> 1507052195.26
+[2017-10-03 23:06:35,262] INFO::(P:7073 T:140473916671744)::domain_crawler - Finding domain name for : cuelogic
+[2017-10-03 23:06:35,263] INFO::(P:7073 T:140473916671744)::domain_crawler - ----------
+[2017-10-03 23:06:38,918] INFO::(P:7073 T:140473916671744)::domain_crawler - Google Search results to fetch linked Url: cuelogic
+[2017-10-03 23:06:41,745] INFO::(P:7073 T:140473916671744)::domain_crawler - Crawling http://www.google.com/search?q=cuelogic+linkedin
+[2017-10-03 23:07:25,326] ERROR::(P:7073 T:140473916671744)::domain_crawler - In crawlLinkedInForCompanyName
+[2017-10-03 23:07:26,784] INFO::(P:7073 T:140473916671744)::domain_crawler - LinkedIn URL : cuelogic
+[2017-10-03 23:07:34,609] INFO::(P:7073 T:140473916671744)::domain_crawler - Received response 200
+[2017-10-03 23:07:40,169] INFO::(P:7073 T:140473916671744)::domain_crawler - ******************************
+[2017-10-03 23:07:50,428] INFO::(P:7073 T:140473916671744)::domain_crawler - ++++++++++++++++++++++++++++++
+[2017-10-03 23:07:51,130] INFO::(P:7073 T:140473916671744)::domain_crawler -   cuelogic linkedin cuelogic
+[2017-10-03 23:07:51,834] INFO::(P:7073 T:140473916671744)::domain_crawler - Cuelogic Technologies | LinkedIn
+[2017-10-03 23:07:52,646] INFO::(P:7073 T:140473916671744)::domain_crawler - ++++++++++++++++++++++++++++++
+[2017-10-03 23:08:03,810] INFO::(P:7073 T:140473916671744)::utils - cuelogic
+[2017-10-03 23:08:07,496] INFO::(P:7073 T:140473916671744)::domain_crawler - Removing Stopwords from CompanyName: ['cuelogic', 'cuelogic']
+[2017-10-03 23:08:08,145] INFO::(P:7073 T:140473916671744)::domain_crawler - Title List to match: ['cuelogic', ['cuelogic', 'technologies', '|', 'linkedin']]
+[2017-10-03 23:08:11,856] INFO::(P:7073 T:140473916671744)::domain_crawler - https://www.linkedin.com/company/cuelogic-technologies
+[2017-10-03 23:11:31,789] INFO::(P:7073 T:140473916671744)::domain_crawler - In linkedInProxyRequest
+[2017-10-03 23:11:33,993] INFO::(P:7073 T:140473916671744)::domain_crawler - Crawling https://googleweblight.com/?lite_url=https://www.linkedin.com/company/cuelogic-technologies
+[2017-10-03 23:11:57,555] INFO::(P:7073 T:140473916671744)::domain_crawler - Crawling https://googleweblight.com/?lite_url=https://in.linkedin.com/company/cuelogic-technologies
+[2017-10-03 23:14:21,336] ERROR::(P:7073 T:140473916671744)::domain_crawler - findWebsite - ERROR : HTTP 599: Operation timed out after 26811 milliseconds with 0 bytes received
+[2017-10-03 23:15:00,776] INFO::(P:7073 T:140473916671744)::domain_crawler - 
+[2017-10-03 23:15:21,102] ERROR::(P:7073 T:140473916671744)::domain_crawler - findWebsite - ERROR : HTTP 599: Operation timed out after 45636 milliseconds with 0 bytes received
+[2017-10-03 23:15:21,891] INFO::(P:7073 T:140473916671744)::domain_crawler - 
+[2017-10-03 23:23:47,397] ERROR::(P:7073 T:140473916671744)::domain_crawler - findWebsite - ERROR : HTTP 503: Service Unavailable
+[2017-10-03 23:23:47,853] INFO::(P:7073 T:140473916671744)::domain_crawler - 

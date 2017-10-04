@@ -76,11 +76,8 @@ class RabbitMQPublisher(object):
                 formatted_message[each] = message[each]
             else:
                 formatted_message[each] = ''
-        formatted_message['requestInitiatedTime'] = \
-            message['requestInitiatedTime']
-        formatted_message['requestUpdatedTime'] = \
-            str(datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'
-                ))
+        # formatted_message['requestInitiatedTime'] = message['requestInitiatedTime']
+        formatted_message['requestUpdatedTime'] = str(datetime.datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S'))
         logger.info("Updating payload")
         logger.info(str(formatted_message))
         return json.dumps(formatted_message)
