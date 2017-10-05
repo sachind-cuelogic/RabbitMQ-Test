@@ -34,7 +34,7 @@ from domainIdentifier.models import Domains, Websites
 
 
 def getMxRecordForDomain(domainName):
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     mxRecordList = list()
     try:
         mxRecords = dns.resolver.query(domainName, 'MX')
@@ -46,7 +46,7 @@ def getMxRecordForDomain(domainName):
         return mxRecordList
 
 def parseDomain(website):
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     domain_crawler.logger.info('parseDomain from Company Website: %s' % website)
     website = str(website)
     currentDomain = None
@@ -85,7 +85,7 @@ def removeCompanySuffix(companyName):
 
 
 def getCleanCompanyName(companyName):
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
 
     cleanCompanyName = removeCompanySuffix(companyName.lower())
     return r''.join(e for e in cleanCompanyName.strip() if e.isalnum())
@@ -96,7 +96,7 @@ def getCompanyInitials(companyName):
 
     initialList = []
     cleanCompanyName = removeCompanySuffix(companyName)
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     domain_crawler.logger.info(cleanCompanyName)
     for each in cleanCompanyName.split(r' '):
         if each:
@@ -105,7 +105,7 @@ def getCompanyInitials(companyName):
 
 
 def getCleanDomainName(domainName):
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
 
     domain_crawler.logger.info('In getCleanDomainName %s' % str(domainName))
     (newDomainName, domainSuffix) = (domainName.split('.')[0],
@@ -138,7 +138,7 @@ def getProxyRequest(url):
         proxy_host=r'proxy.crawlera.com',
         proxy_port=8010,
         proxy_username=r'7376f12e3a8d40ebbd378dc67529b71a',
-        request_timeout=50,
+        request_timeout=100,
         validate_cert=False,
         )
     return request
@@ -150,7 +150,7 @@ def getRequest(url):
         This method does not actually issue the request.
 
     """
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
 
     request = httpclient.HTTPRequest(url, r'GET',
             user_agent=domain_crawler.conf.USER_AGENTS[randint(0,
@@ -164,7 +164,7 @@ def addNewDomain(companyName, newDomain, domainSource):
         Saving domain to database on validating domain & 
         if it does not exists in database against companyName
     """
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     domain_crawler.logger.info(r'In addNewDomain :%s, %s' % (str(companyName),
                 str(newDomain)))
     isValidDomain = validateDomainAgainstCompanyName(newDomain,
@@ -194,7 +194,7 @@ def addNewWebsite(companyName, newWebsite, domainSource):
         if it does not exists in database against companyName
     """
 
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
 
     domain_crawler.logger.info(r'In addNewWebsite :%s, %s' % (str(companyName),
                 str(newWebsite)))
@@ -218,7 +218,7 @@ def getCompanyDomain(companyName, currentDomain):
     """
         Check if domain exists against company_name in database
     """
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
 
     newCompanyName = removeCompanySuffix(companyName)
     domain = Domains.query.filter(Domains.company
@@ -236,7 +236,7 @@ def getCompanyWebAddress(companyName, url):
     """
         Check if website exists against company_name in database
     """
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
 
     newCompanyName = removeCompanySuffix(companyName)
     domain_crawler.logger.info('Get web address for company : %s' % str(companyName))

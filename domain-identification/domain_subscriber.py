@@ -30,6 +30,9 @@ def scheduler():
 def findDomains(message):
     # import pdb; pdb.set_trace()
     print "findDomains"
+    print "--"
+    print "--"
+    print "--"
 
     CleanCompanyName = removeCompanySuffix(message['companyName']) 
     domainList = getCompanyDomainList(CleanCompanyName)
@@ -56,6 +59,9 @@ def findDomains(message):
 def messageCallback(ch, method, properties, body):
     # import pdb; pdb.set_trace()
     print "inside message callback"
+    print "--"
+    print "--"
+    print "--"
 
     try:
         # import pdb; pdb.set_trace()

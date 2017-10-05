@@ -76,6 +76,10 @@ def validateDomain(domainName, companyName):
     logger.info(r'*' * 10)
     logger.info('In validate domain(domainName,companyName) ->> %s , %s'
                  % (domainName, companyName))
+    print "validate domain"
+    print "--"
+    print "--"
+
     global finalBlacklistedDomains, verifiedDomainSet
     try:
         logger.info(str(domainName
@@ -167,12 +171,20 @@ def crawlGoogleForCompanyName(companyName, message):
         crawlGoogleForCompanyName is a function to get all data from google for companyName
         Tornado Async calls are intented to use for scrapping
     """
-
+    # import pdb; pdb.set_trace()
     logger.info('Google Search results to fetch : %s' % companyName)
-    companyName = '"%s"' % companyName
+    print "--"
+    print "--"
+    print "--"
+
+    companyName = '%s' % companyName
     http_client = httpclient.AsyncHTTPClient()
     query = {'q': companyName}
     url = 'http://www.google.com/search?' + urllib.urlencode(query)+'&gl=us'
+
+    print "--"
+    print "url of crawlGoogleForCompanyName=====>>>", url
+
     request = getProxyRequest(url)
     logger.info('Crawling %s' % url)
     callback = functools.partial(findURL, companyName, 'google',message)
@@ -181,12 +193,20 @@ def crawlGoogleForCompanyName(companyName, message):
 
 
 def findLinkedInUrl(companyName, message):
+
+    # import pdb; pdb.set_trace()
+    
     logger.info('Google Search results to fetch linked Url: %s'
                 % companyName)
+    print "--"
+    print "--"
+    print "--"
+
     companyName = '%s' % companyName
     http_client = httpclient.AsyncHTTPClient()
     searchString = urllib.urlencode({'q': '%s linkedin' % companyName})
     url = 'http://www.google.com/search?%s' % searchString
+    print "url of findLinkedInUrl=====>>>", url
     request = getProxyRequest(url)
     logger.info('Crawling %s' % url)
     callback = functools.partial(crawlLinkedInForCompanyName,
@@ -201,14 +221,20 @@ def crawlLinkedInForCompanyName(companyName, message, response):
         Tornado Async calls are intented to use for scrapping
     """
 
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     global linked_company_count
+    print "--"
+    print "--"
+    print "response code ===>>>>", response.code
+    print "response url",response.effective_url
 
-    logger.error('In crawlLinkedInForCompanyName')
+    logger.info('In crawlLinkedInForCompanyName')
     if response.error:
 
         http_client = httpclient.AsyncHTTPClient()
-
+        print "retry crawl linked in request"
+        print "--"
+        print "--"
         if linked_company_count <= 3:
             request = getProxyRequest(response.effective_url)
             callback = functools.partial(crawlLinkedInForCompanyName, companyName, message)
@@ -227,6 +253,7 @@ def crawlLinkedInForCompanyName(companyName, message, response):
     #                  % response.error)
     #     logger.info(r'')
     #     ioloop.IOLoop.instance().stop()
+
     else:
         logger.info(r'LinkedIn URL : %s' % companyName)
         companyName = '"%s"' % companyName
@@ -239,8 +266,14 @@ def crawlLinkedInForCompanyName(companyName, message, response):
 
 
 def linkedInProxyRequest(linkedUrl, companyName, message):
+    
+    # import pdb; pdb.set_trace()
     global pendingLinkedInResponseCount
     logger.info('In linkedInProxyRequest')
+    print "linked proxy requet"
+    print "--"
+    print "--"
+
     http_client = httpclient.AsyncHTTPClient()
     url = 'https://googleweblight.com/?lite_url=' + linkedUrl
     request = getProxyRequest(url)
@@ -261,8 +294,13 @@ def getLinkedInWebsite(response, companyName):
         companyName if and only if companyName is substring of 
         title
     """
+    # import pdb; pdb.set_trace()
 
     global urlSet
+    print "get linked website"
+    print "--"
+    print "--"
+
     companyName = companyName.strip('"')
     CleanCompanyName = removeCompanySuffix(companyName)
     if response.error:
@@ -271,13 +309,17 @@ def getLinkedInWebsite(response, companyName):
         logger.info(r'')
     else:
         logger.info(r'Received response %s' % response.code)
+        logger.info(r'response body====>>> %s' % response.body)
         tree = html.fromstring(response.body)
         eachTitleXpath = \
             r'//*[@id="rso"]/div/div/div[1]/div/div/h3/a'
+            # //*[@id="rso"]/div[1]/div/div[1]/div/div/h3/a
+            # //*[@id="rso"]/div[1]/div/div[1]/div/div/h3
         eachDescriptionXpath = \
             '//*[@id="rso"]/div/div/div[1]/div/div/div/div/span/em'
-        eachUrlXpath = \
-            r'//*[@id="rso"]/div/div/div[1]/div/div/div/div/div[1]/cite'
+        eachUrlXpath = r'//*[@id="rso"]/div/div/div[1]/div/div/div/div/div[1]/cite'
+            # '//*[@id="rso"]/div/div/div[1]/div/div/div/div/div/cite
+            # '//*[@id="rso"]/div/div/div[1]/div/div/div/div/div/cite'
         title = r''
         for anchor in tree.xpath(eachTitleXpath):
             logger.info(r'*' * 30)
@@ -313,19 +355,25 @@ def findWebsite(companyName, message, response):
         page if and only if companyName is substring of 
         title, snippet for each google result
     """
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     global verifiedDomainSet, pendingLinkedInResponseCount, find_web_count
+    print "--"
+    print "--"
+    print "response code ===>>>>", response.code
+    print "response url",response.effective_url
+
     companyName = companyName.strip('"')
     domainSource = 'linkedin'
     # pendingLinkedInResponseCount -= 1
     if response.error:
 
-
         # logger.error('findWebsite - ERROR : %s' % response.error)
         # logger.info(r'')
 
         http_client = httpclient.AsyncHTTPClient()
-
+        print "retry linkedInProxyRequest in request"
+        print "--"
+        print "--"
         if find_web_count <= 3:
             request = getProxyRequest(response.effective_url)
             callback = functools.partial(findWebsite, companyName, message)
@@ -410,7 +458,7 @@ def getDomainFromWebsite(companyName, domainSource):
     """
         getDomainFromWebsite is a function get to domain from an webaddress/ website
     """
-
+    # import pdb; pdb.set_trace()
     global domainSet, urlSet
     try:
         logger.info(r'Get Domain from Company Website: %s' % urlSet)
@@ -442,7 +490,7 @@ def crawlGoogleForDomainNamePhase1(companyName, message):
         crawlGoogleForDomainNamePhase1 is a step 1 to verfiy domain names 
         using google query for pattern: "info@companyName" OR "emailcompanyName"
     """
-
+    # import pdb; pdb.set_trace()
     global pendingEmailResponseCount, verifiedDomainSet, domainSet
     logger.info('Domain Verification for company[Pattern1] : %s'
                 % str(companyName))
@@ -558,6 +606,13 @@ def findURL(companyName, request_source, message, response):
     """
     import pdb; pdb.set_trace()
     global urlSet, find_url_count
+    
+    print "**************************"
+    print "get result from google crawlGoogleForCompanyName"
+    print "****************************"
+    print "response code ===>>>>", response.code
+    print "response url",response.effective_url
+
     companyName = companyName.strip('"')
     if response.error:
         
@@ -565,7 +620,9 @@ def findURL(companyName, request_source, message, response):
         # logger.info(r'')
 
         http_client = httpclient.AsyncHTTPClient()
-
+        print "retry crawlGoogleForCompanyName in request"
+        print "--"
+        print "--"
         if find_url_count <= 3:
             request = getProxyRequest(response.effective_url)
             callback = functools.partial(findURL, companyName, 'google',message)
@@ -581,13 +638,21 @@ def findURL(companyName, request_source, message, response):
         logger.info(r'Received response %s' % response.code)
         tree = html.fromstring(response.body)
         title = r''
-        titleXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/h3/a'
-        descriptionXpath = \
-            r'//*[@id="rso"]/div[%d]/div/div/div/div/div/div/span/text()'
-        urlXpath = \
-            r'//*[@id="rso"]/div[%d]/div/div/div/div/div/div/div/cite'
         flag = 1
         index = 1
+        titleXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/h3/a'
+        # xtitle = tree.xpath(titleXpath % index)
+        # print "xtitle=====>>>",xtitle.text
+        descriptionXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/div/div/span/text()'
+        # xdesc = tree.xpath(descriptionXpath % index)
+        # print "xtitle=====>>>",xdesc.text
+        # print "description of company===>", tree.xpath(r'//*[@id="rso"]/div[1]/div/div/div/div/div/div/span/em')
+
+        urlXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/div/div/div/cite'
+        # xurl = tree.xpath(urlXpath)
+        # print "xtitle=====>>>",xurl.text
+        # print "url of company===>", tree.xpath(r'//*[@id="rso"]/div[1]/div/div/div/div/div/div/div/cite')
+
         for anchor in tree.xpath(titleXpath % index):
             title = anchor.text
         description = []
@@ -597,6 +662,11 @@ def findURL(companyName, request_source, message, response):
         try:
             cleanTitle = removeCompanySuffix(title)
             titleList = [each.lower().replace("'","").replace(",","").replace(",","") for each in cleanTitle.split(" ")]
+            
+            titleListWithoutSpace = ''.join(titleList)
+
+            print "title list without space====>>>>", titleListWithoutSpace
+
             CleanCompanyName = removeCompanySuffix(companyName)
             companyNameFirstPart = (CleanCompanyName.split(" ")[0]).lower().replace("'","").replace(",","")
             companyInitial = getCompanyInitials(companyName)
@@ -605,8 +675,9 @@ def findURL(companyName, request_source, message, response):
             logger.info("Title List to match: %s"%(([companyName, titleList])))
 
             if (companyNameFirstPart in titleList) or \
-                (CleanCompanyName in title) or \
-                    (companyInitial in title):
+                (CleanCompanyName in title.lower()) or \
+                    (companyInitial in title.lower()) or\
+                        (CleanCompanyName in titleListWithoutSpace.lower()):
                 each = tree.xpath(urlXpath % index)[0]
                 temp_url = each.text
                 url = temp_url.split(r' ')[0]
@@ -622,6 +693,11 @@ def findURL(companyName, request_source, message, response):
 
 
 def getDomains(message):
+    # import pdb; pdb.set_trace()
+    print "get domain"
+    print "--"
+    print "--"
+
     companyName = message['companyName']
     logger.info(r'-' * 10)
     startTime = time.time()
@@ -636,7 +712,7 @@ def getDomains(message):
         re.compile(r'[A-Z.]+[A-Z0-9*_-]+@[A-Z]+\.{1}[A-Z.]+[A-Z]',
                    re.IGNORECASE)
     companyName = companyName.encode('utf-8')
-    findLinkedInUrl(companyName, message)
+    # findLinkedInUrl(companyName, message)
     if not len(verifiedDomainSet):
         crawlGoogleForCompanyName(companyName, message)
         getDomainFromWebsite(companyName, 'google')
