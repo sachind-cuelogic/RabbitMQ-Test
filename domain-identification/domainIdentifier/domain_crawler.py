@@ -23,7 +23,7 @@ import tldextract
 from lxml import html
 from tornado import ioloop, httpclient
 
-from config import Config, BLACKLISTED_DOMAINS, COMPANY_SUFFIX_LIST
+from config import Config, BLACKLISTED_DOMAINS, COMPANY_SUFFIX_LIST, googleTitleXpathList, googleDescXpathList, googleUrlXpathList
 from domainIdentifier.utils import *
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
@@ -186,8 +186,8 @@ def crawlGoogleForCompanyName(companyName, message):
     print "url of crawlGoogleForCompanyName=====>>>", url
 
     request = getProxyRequest(url)
-    logger.info('Crawling %s' % url)
-    callback = functools.partial(findURL, companyName, 'google',message)
+    logger.info('Crawling google url ======>>>>> %s' % url)
+    callback = functools.partial(findURL, companyName, 'google',message, url)                
     http_client.fetch(request, callback)
     ioloop.IOLoop.instance().start()
 
@@ -598,7 +598,9 @@ def getDomainFromCrunchBase(companyName, message):
                 str(crunchbaseUrlSet)))
 
 
-def findURL(companyName, request_source, message, response):
+def findURL(companyName, request_source, message, url, response):
+
+
     """
         findURL is a function to get all urlSet from google result 
         page if and only if companyName is substring of 
@@ -611,7 +613,11 @@ def findURL(companyName, request_source, message, response):
     print "get result from google crawlGoogleForCompanyName"
     print "****************************"
     print "response code ===>>>>", response.code
-    print "response url",response.effective_url
+    print "response url====>>>>",response.effective_url
+    logger.info(r'Received response url====>>>> %s' % response.effective_url)
+    print "original url====>>>>",url
+    # print "response body of ======>>>>>>", response.body
+    logger.info(r'Received response body========>>>>>>>>> %s' % response.body)
 
     companyName = companyName.strip('"')
     if response.error:
@@ -624,8 +630,8 @@ def findURL(companyName, request_source, message, response):
         print "--"
         print "--"
         if find_url_count <= 3:
-            request = getProxyRequest(response.effective_url)
-            callback = functools.partial(findURL, companyName, 'google',message)
+            request = getProxyRequest(url)
+            callback = functools.partial(findURL, companyName, 'google',message, url)
             http_client.fetch(request, callback)
             find_url_count += 1
 
@@ -640,24 +646,34 @@ def findURL(companyName, request_source, message, response):
         title = r''
         flag = 1
         index = 1
-        titleXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/h3/a'
+        # titleXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/h3/a'
+
         # xtitle = tree.xpath(titleXpath % index)
         # print "xtitle=====>>>",xtitle.text
-        descriptionXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/div/div/span/text()'
+        # descriptionXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/div/div/span/text()'
         # xdesc = tree.xpath(descriptionXpath % index)
         # print "xtitle=====>>>",xdesc.text
         # print "description of company===>", tree.xpath(r'//*[@id="rso"]/div[1]/div/div/div/div/div/div/span/em')
 
-        urlXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/div/div/div/cite'
+        # urlXpath = r'//*[@id="rso"]/div[%d]/div/div/div/div/div/div/div/cite'
         # xurl = tree.xpath(urlXpath)
         # print "xtitle=====>>>",xurl.text
         # print "url of company===>", tree.xpath(r'//*[@id="rso"]/div[1]/div/div/div/div/div/div/div/cite')
+        # import pdb; pdb.set_trace()
 
-        for anchor in tree.xpath(titleXpath % index):
-            title = anchor.text
+        for titlexpath in googleTitleXpathList:
+            for anchor in tree.xpath(titlexpath):
+                title = anchor.text
+
+                    
+
         description = []
-        for desc in tree.xpath(descriptionXpath % index):
-            description.append(desc)
+
+        for descxpath in googleDescXpathList:
+            for desc in tree.xpath(descxpath):
+                description.append(desc)
+                
+
         print title, description
         try:
             cleanTitle = removeCompanySuffix(title)
@@ -673,18 +689,23 @@ def findURL(companyName, request_source, message, response):
             logger.info("Removing Stopwords from CompanyName: %s"%(str([companyName, 
                                                     CleanCompanyName])))
             logger.info("Title List to match: %s"%(([companyName, titleList])))
-
+            # import pdb; pdb.set_trace()
             if (companyNameFirstPart in titleList) or \
                 (CleanCompanyName in title.lower()) or \
                     (companyInitial in title.lower()) or\
                         (CleanCompanyName in titleListWithoutSpace.lower()):
-                each = tree.xpath(urlXpath % index)[0]
-                temp_url = each.text
-                url = temp_url.split(r' ')[0]
-                if 'linkedin' in url:
-                    linkedInProxyRequest(url, companyName, message)
+
+                for urlxpath in googleUrlXpathList:
+                    for url in tree.xpath(urlxpath):
+                       
+                        temp_url = url.text
+                                   
+                websiteurl = temp_url.split(r' ')[0]
+
+                if 'linkedin' in websiteurl:
+                    linkedInProxyRequest(websiteurl, companyName, message)
                 else:
-                    urlSet.append(url)
+                    urlSet.append(websiteurl)
                     flag = 0
         except Exception, e:
             logger.error(str(e))
