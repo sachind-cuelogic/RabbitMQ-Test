@@ -8,8 +8,10 @@ from domainIdentifier.utils import getMxRecordForDomain
 
 from brokerService.Subscriber import RabbitMQSubscriber
 from brokerService.rabbitmq_config import *
+from brokerService.Publisher import RabbitMQPublisher
 
 domain_subscriber = RabbitMQSubscriber(host=RabbitMQ_Host)
+# publisher = RabbitMQPublisher(exchange_name=Domain_Exchange, host=RabbitMQ_Host)
 print "domain sub==>", domain_subscriber
 
 
@@ -17,6 +19,7 @@ def listen():
     print "inside listen"
     domain_subscriber.declare_exchange(exchange_name=Domain_Exchange)
     domain_subscriber.declare_queue(queue_name=Domain_Queue, routing_key=Domain_Exchange)
+    # publisher.publishData()
     domain_subscriber.subscribing(messageCallback)
     domain_subscriber.connection.process_data_events()
 

@@ -103,6 +103,7 @@ class RabbitMQSubscriber(object):
         @param queue_name name of the queue
         @param consumer_tag a client-generated consumer tag to establish context
         """
+        # import pdb; pdb.set_trace()
 
         logger.debug('[*] Waiting for messages.')
         if hasattr(self, 'queue_name') or queue_name:
@@ -111,6 +112,7 @@ class RabbitMQSubscriber(object):
             try:
                 logger.debug('In try %s' % str(time.time()))
                 self.channel.start_consuming()
+                publishData()
             except:
                 logger.debug('In exception %s' % str(time.time()))
                 credentials = pika.PlainCredentials(RabbitMQ_User,

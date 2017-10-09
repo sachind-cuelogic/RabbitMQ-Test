@@ -4,7 +4,7 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-
+import datetime
 import functools
 import difflib
 import logging.config
@@ -72,7 +72,7 @@ def validateDomain(domainName, companyName):
                     add that domain to verifiedDomainSet since its the 
                     parent organizations of query domain
     """
-
+    # import pdb; pdb.set_trace()
     logger.info(r'*' * 10)
     logger.info('In validate domain(domainName,companyName) ->> %s , %s'
                  % (domainName, companyName))
@@ -550,7 +550,7 @@ def getDomainFromCrunchBase(companyName, message):
     """
         Get domain name from crunchbase api for given companyName
     """
-
+    # import pdb; pdb.set_trace()
     global crunchbaseUrlSet, crunchbaseDomainSet, verifiedDomainSet
     logger.info('Get all domains from CrunchBase: %s'
                 % str(companyName))
@@ -606,18 +606,14 @@ def findURL(companyName, request_source, message, url, response):
         page if and only if companyName is substring of 
         title, snippet for each google result
     """
-    import pdb; pdb.set_trace()
+    # import pdb; pdb.set_trace()
     global urlSet, find_url_count
     
-    print "**************************"
-    print "get result from google crawlGoogleForCompanyName"
-    print "****************************"
     print "response code ===>>>>", response.code
     print "response url====>>>>",response.effective_url
     logger.info(r'Received response url====>>>> %s' % response.effective_url)
-    print "original url====>>>>",url
     # print "response body of ======>>>>>>", response.body
-    logger.info(r'Received response body========>>>>>>>>> %s' % response.body)
+    # logger.info(r'Received response body========>>>>>>>>> %s' % response.body)
 
     companyName = companyName.strip('"')
     if response.error:
@@ -664,9 +660,9 @@ def findURL(companyName, request_source, message, url, response):
         for titlexpath in googleTitleXpathList:
             for anchor in tree.xpath(titlexpath):
                 title = anchor.text
+                
 
                     
-
         description = []
 
         for descxpath in googleDescXpathList:
@@ -675,9 +671,10 @@ def findURL(companyName, request_source, message, url, response):
                 
 
         print title, description
+        
         try:
             cleanTitle = removeCompanySuffix(title)
-            titleList = [each.lower().replace("'","").replace(",","").replace(",","") for each in cleanTitle.split(" ")]
+            titleList = [each.lower().replace("'","").replace(",","").replace(",","").replace(":","") for each in cleanTitle.split(" ")]
             
             titleListWithoutSpace = ''.join(titleList)
 
@@ -707,6 +704,10 @@ def findURL(companyName, request_source, message, url, response):
                 else:
                     urlSet.append(websiteurl)
                     flag = 0
+            else:
+                getDomainFromCrunchBase(companyName, message)
+
+
         except Exception, e:
             logger.error(str(e))
     logger.info('URL FOUND %s' % str(urlSet))
@@ -757,4 +758,5 @@ def getDomains(message):
     endTime = time.time()
     logger.info(r'End time -->> ' + str(endTime))
     logger.info(r'Total time -->> ' + str(endTime - startTime))
+    print "end time========>>>>>>>>>",datetime.datetime.now()
     return resultDomainSet

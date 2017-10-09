@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import datetime
+import time
 import json
 import pika
-
+import csv
 from rabbitmq_config import *
 from domainIdentifier.domain_crawler import logger
 
@@ -54,6 +55,25 @@ class RabbitMQPublisher(object):
                                    properties=pika.BasicProperties(delivery_mode=2))
         logger.debug('Published message for exchange %s'
                      % str(routing_key))
+
+
+    # def publishData(self):
+    #     # publisher.publish(message, exchangeName)
+    #     print "inside publish data"
+    #     reader = csv.DictReader(open('response.csv', 'rb'))
+    #     print "reader====>",reader
+    #     dict_list = []
+    #     for line in reader:
+    #         dict_list.append(line)
+
+    #     print "dict list====>", dict_list
+
+    #     for dl in dict_list:
+    #         print "each dictionary", dl
+    #         self.publish(dl, Domain_Exchange)
+            # time.sleep(100)
+
+
 
     def close(self):
         """

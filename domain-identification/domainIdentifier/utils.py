@@ -138,7 +138,7 @@ def getProxyRequest(url):
         proxy_host=r'proxy.crawlera.com',
         proxy_port=8010,
         proxy_username=r'7376f12e3a8d40ebbd378dc67529b71a',
-        request_timeout=100,
+        request_timeout=200,
         validate_cert=False,
         )
     return request
